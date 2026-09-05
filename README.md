@@ -38,7 +38,7 @@ OpenCord is an open source Discord client mod forked from [Equicord](https://git
 <details open>
 <summary>Windows</summary>
 
-Download and run the GUI installer:
+Download and run the GUI installer: 
 
 ```powershell
 Invoke-WebRequest -Uri "https://github.com/MasuRii/OpenCord/releases/latest/download/OpenCordInstaller.exe" -OutFile "OpenCordInstaller.exe"
