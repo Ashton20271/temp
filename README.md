@@ -107,7 +107,7 @@ src/opencordplugins/         OpenCord plugins
 ## Installing / Uninstalling
 
 > [!NOTE]
-> OpenCord currently uses Equilotl as its desktop installer backend, but these downloads are mirrored through OpenCord releases.
+> OpenCord currently uses Equilotl as its desktop installer backend, but these downloads are mirrored through OpenCord releases. 
 
 <details open>
 <summary><strong>Windows</strong></summary>
