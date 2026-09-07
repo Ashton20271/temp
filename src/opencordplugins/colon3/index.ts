@@ -1,10 +1,19 @@
+```ts
 import {
     addMessagePreSendListener,
     removeMessagePreSendListener,
 } from "@api/MessageEvents";
+import { Devs } from "@utils/constants";
 import definePlugin from "@utils/types";
 
-let listener: ReturnType<typeof addMessagePreSendListener>;
+const preSend = (_channelId: string, message: { content: string }) => {
+    if (!message.content) return;
+
+    // Don't add :3 if the message already ends with it.
+    if (message.content.trimEnd().endsWith(":3")) return;
+
+    message.content += " :3";
+};
 
 export default definePlugin({
     name: ":3",
@@ -15,21 +24,14 @@ export default definePlugin({
             id: 1223800047226060931n,
         },
     ],
-
     dependencies: ["MessageEventsAPI"],
 
     start() {
-        listener = addMessagePreSendListener((_channelId, message) => {
-            if (!message.content) return;
-
-            // Prevent :3 from being added multiple times.
-            if (message.content.endsWith(":3")) return;
-
-            message.content += " :3";
-        });
+        addMessagePreSendListener(preSend);
     },
 
     stop() {
-        removeMessagePreSendListener(listener);
+        removeMessagePreSendListener(preSend);
     },
 });
+```
